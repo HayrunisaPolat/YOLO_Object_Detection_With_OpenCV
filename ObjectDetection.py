@@ -7,7 +7,7 @@ import time
 yolo_model = YOLO("yolov8n.pt")  
 
 # video file path
-video_path = r"C:\YOLO_Object_Detection_With_OpenCV\Videos\traffic.mp4"  
+video_path = r"C:\YOLO_Object_Detection_With_OpenCV\Videos\crowdedBazaar2.mp4"  
 
 # Initialize video capture
 videoCapture = cv2.VideoCapture(video_path) 
@@ -25,12 +25,12 @@ with open('object_detection_results.csv', mode='w', newline='') as file:
     csv_writer.writerow([' Total Objects Detected ', ' Processing Time (ms) '])  # Write header row
 
     while videoCapture.isOpened():
-
         # Read a frame from the video    
         success, frame = videoCapture.read()  
 
          # Exit the loop if there are no more frames
         if  not success:
+            print("Finished processing video or failed to read the frame.")
             break 
 
         # Increment frame count
